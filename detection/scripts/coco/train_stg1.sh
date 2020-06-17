@@ -23,8 +23,11 @@ python3 train_stg1.py \
     DATA.BASEDIR=${COCODIR} \
     DATA.TRAIN="('${DATASET}',)" \
     MODE_MASK=False \
-    FRCNN.BATCH_PER_IM=64 \
+    FRCNN.BATCH_PER_IM= 512\
     PREPROC.TRAIN_SHORT_EDGE_SIZE="[500,800]" \
-    TRAIN.EVAL_PERIOD=20 \
+    TRAIN.EVAL_PERIOD=3 \
     TRAIN.AUGTYPE_LAB='default' \
+    TRAIN.BASE_LR=0.02 \
+    TRAIN.WARMUP = 500 \
+    TRAIN.WARMUP_INIT_LR = 2e-2 * 0.33 \
     $@
